@@ -19,22 +19,31 @@ import com.quickbirdstudios.surveykit.survey.SurveyView
 import com.startupsurveys.MainActivity
 import com.startupsurveys.R
 import com.startupsurveys.ui.home.HomeFragment
+import com.startupsurveys.util.PaymentHelper
+import com.startupsurveys.util.PaymentHelper.Companion.completePayment
 import com.startupsurveys.util.SurveyHelper
+import kotlinx.coroutines.*
 
 
 class SurveyFragment : Fragment() {
 
     private lateinit var surveyView: SurveyView
+    private lateinit var surveyReward: String
+    private lateinit var scope: CoroutineScope
+
+    private val userAddress = "rKi7x3BMPLiWaMK8fYE1V2m6no6KQUxpNm"
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view  = inflater.inflate(R.layout.fragment_survey, container, false)
+        val view = inflater.inflate(R.layout.fragment_survey, container, false)
         surveyView = view.findViewById(R.id.survey_view)
 
         setupQuestions()
+
+        surveyReward = arguments?.getString("reward") ?: "0"
 
         return view
     }
@@ -91,12 +100,35 @@ class SurveyFragment : Fragment() {
                 val toast = Toast.makeText(context, text, duration)
                 toast.show()
 
-                // TODO: show transaction
-                (activity as MainActivity).navigateTo(HomeFragment())
+                // TODO: make user definable.
+                // matching secret for below address: sEdS4BT6SzzQxnvwMdAjJotnTjnwE4S
+                scope = CoroutineScope(Job() + Dispatchers.IO)
+
+                scope.launch {
+                    completePayment(userAddress, surveyReward) { result, error ->
+                        run {
+                            if (error != null) {
+                                val errorString = error.toString()
+                                Toast.makeText(context, errorString, duration).show()
+                                return@run
+                            }
+                            println("Payment result: $result")
+                            // TODO: show transaction
+
+                            (activity as MainActivity).navigateTo(HomeFragment())
+                        }
+                    }
+                }
             }
         }
 
         activity?.actionBar?.title = "Survey: $appName"
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // kill scope
+        scope.cancel()
     }
 
 }

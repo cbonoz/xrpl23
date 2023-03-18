@@ -18,14 +18,14 @@ class SurveyAdapter(context: Context, private val surveys: List<Survey>) :
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var view = convertView
         if (view == null) {
-            view = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_2, parent, false)
+            view = LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_activated_2, parent, false)
         }
 
         val text1 = view!!.findViewById<View>(android.R.id.text1) as TextView
         val text2 = view.findViewById<View>(android.R.id.text2) as TextView
         text1.text = surveys[position].appName
         val numQuestions = surveys[position].numQuestions
-        text2.text = "${numQuestions} questions"
+        text2.text = "$numQuestions questions - ${surveys[position].reward} XRP reward"
         return view
     }
 

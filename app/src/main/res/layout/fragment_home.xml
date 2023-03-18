@@ -4,11 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:paddingEnd="@android:dimen/app_icon_size"
+        android:paddingStart="@android:dimen/app_icon_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"/>
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search boxes..."/>
+        android:queryHint="Search surveys..."/>
 
     <ListView
         android:id="@+id/list_view"

@@ -7,6 +7,11 @@ android {
     namespace 'com.startupsurveys'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding true
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId "com.startupsurveys"
         minSdk 24
@@ -18,7 +23,16 @@ android {
     }
 
     buildTypes {
+//
         release {
+            buildConfigField "String", "SENDER_ADDRESS", "\"rfadmCzXq3pTf4wYEFoHki1x1uZvMnm1Ad\""
+            buildConfigField "String", "SENDER_SECRET", "\"sEdVSNH5WV4StzENfyp2KzrbNxSBoTP\"" // TODO: obfuscate for production.
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "SENDER_ADDRESS", "\"rfadmCzXq3pTf4wYEFoHki1x1uZvMnm1Ad\""
+            buildConfigField "String", "SENDER_SECRET", "\"sEdVSNH5WV4StzENfyp2KzrbNxSBoTP\"" // TODO: obfuscate for production.
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
