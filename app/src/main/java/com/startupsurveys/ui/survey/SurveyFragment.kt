@@ -1,11 +1,13 @@
 package com.startupsurveys.ui.survey
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.quickbirdstudios.surveykit.FinishReason
@@ -19,8 +21,8 @@ import com.quickbirdstudios.surveykit.survey.SurveyView
 import com.startupsurveys.MainActivity
 import com.startupsurveys.R
 import com.startupsurveys.ui.home.HomeFragment
-import com.startupsurveys.util.PaymentHelper
 import com.startupsurveys.util.PaymentHelper.Companion.completePayment
+import com.startupsurveys.util.PaymentHelper.Companion.getExplorerUrl
 import com.startupsurveys.util.SurveyHelper
 import kotlinx.coroutines.*
 
@@ -40,22 +42,20 @@ class SurveyFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_survey, container, false)
         surveyView = view.findViewById(R.id.survey_view)
-
         setupQuestions()
-
-        surveyReward = arguments?.getString("reward") ?: "0"
 
         return view
     }
 
     private fun setupQuestions() {
+        surveyReward = arguments?.getString("reward") ?: "0.1"
         val appName = arguments?.getString("appName") ?: "UNKNOWN"
         val steps: ArrayList<Step> = arrayListOf()
 //        https://github.com/QuickBirdEng/SurveyKit#create-survey-steps
         steps.add(
             InstructionStep(
                 title = "Review the $appName app",
-                text = "Complete a series of questions on $appName to earn a Crypto reward",
+                text = "Complete a series of questions on $appName to earn a $surveyReward XRP reward",
                 buttonText = "Start"
             )
         )
@@ -107,15 +107,49 @@ class SurveyFragment : Fragment() {
                 scope.launch {
                     completePayment(userAddress, surveyReward) { result, error ->
                         run {
-                            if (error != null) {
-                                val errorString = error.toString()
-                                Toast.makeText(context, errorString, duration).show()
-                                return@run
-                            }
-                            println("Payment result: $result")
-                            // TODO: show transaction
+                            scope.launch(Dispatchers.Main) {
+                                val alertDialog: AlertDialog? = activity?.let {
+                                    val title: String
+                                    val message: String
+                                    if (error != null) {
+                                        title = "Error completing survey"
+                                        message = error.message ?: "Unknown error"
+                                    } else {
+                                        title = "Survey complete!"
+                                        message = "Result: ${result?.engineResultMessage() ?: "Close to return to the app"}"
+                                    }
 
-                            (activity as MainActivity).navigateTo(HomeFragment())
+                                    val builder = AlertDialog.Builder(it)
+                                        .setMessage(message)
+                                        .setTitle(title)
+
+                                    builder.apply {
+                                        setPositiveButton(
+                                            R.string.done
+                                        ) { dialog, id ->
+                                            // User clicked OK button
+                                            dialog.dismiss()
+                                        }
+//                                        setNeutralButton(
+//                                            R.string.view
+//                                        ) { dialog, id ->
+//                                            // User cancelled the dialog
+//                                            val url = getExplorerUrl(userAddress)
+//                                            openWebPage(url)
+//                                            dialog.dismiss()
+//                                        }
+
+                                    }
+                                    // Set other dialog properties
+
+                                    // Create the AlertDialog
+                                    builder.create()
+                                }
+
+                                alertDialog?.show()
+                                // TODO: show transaction
+                                (activity as MainActivity).navigateTo(HomeFragment())
+                            }
                         }
                     }
                 }
@@ -123,6 +157,14 @@ class SurveyFragment : Fragment() {
         }
 
         activity?.actionBar?.title = "Survey: $appName"
+    }
+
+    fun openWebPage(url: String?) {
+        val webpage: Uri = Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, webpage)
+        if (context?.packageManager?.let { intent.resolveActivity(it) } != null) {
+            startActivity(intent)
+        }
     }
 
     override fun onDestroy() {

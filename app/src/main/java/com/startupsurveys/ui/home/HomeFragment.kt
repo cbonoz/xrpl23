@@ -64,7 +64,8 @@ class HomeFragment : Fragment() {
             val selected: Survey = adapter.getItem(i) as Survey
             val bundle = bundleOf(
                 "appName" to selected.appName,
-                "numQuestions" to selected.numQuestions
+                "numQuestions" to selected.numQuestions,
+                "reward" to selected.reward
             )
             (activity as MainActivity).navigateTo(SurveyFragment(), bundle)
         }
