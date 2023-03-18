@@ -65,20 +65,24 @@ worked to ensure that user data was protected at all times.
 
 ### Screenshots
 
+<p align="center">
+
  ### Home Screen
- <img src="./img/search.png" width="200" height="400" />
+ <img src="./img/search.png" width="300" height="600" />
 
  ### Survey Screen
- <img src="./img/survey.png" width="200" height="400" />
+ <img src="./img/survey.png" width="300" height="600" />
 
  ### Survey Complete Screen
- <img src="./img/done.png" width="200" height="400" />
+ <img src="./img/done.png" width="300" height="600" />
 
  ### Rewards Screen
- <img src="./img/payment.png" width="200" height="400" />
+ <img src="./img/payment.png" width="300" height="600" />
 
  ### Setting reward address
- <img src="./img/address.png" width="200" height="400" />
+ <img src="./img/address.png" width="300" height="600" />
 
  ### Transaction history
- <img src="./img/transactions.png" width="200" height="400" />
+ <img src="./img/transactions.png" width="300" height="600" />
+
+</p>
