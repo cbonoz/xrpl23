@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
         listView.setOnItemClickListener { adapterView, root, i, l ->
             // Show error toast if address not in pref manager
             if ((activity as MainActivity).prefManager.getString("USER_ADDRESS", "") == "") {
-                Toast.makeText(context, "Please set your address first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Set your address for rewards by clicking the Surveyr logo", Toast.LENGTH_SHORT).show()
                 return@setOnItemClickListener
             }
 

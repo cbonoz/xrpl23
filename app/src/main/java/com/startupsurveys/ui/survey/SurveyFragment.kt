@@ -46,7 +46,7 @@ class SurveyFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_survey, container, false)
         surveyView = view.findViewById(R.id.survey_view)
         prefManager = PrefManager(context as Context)
-        userAddress = prefManager.getString("USER_ADDRESS", "rKi7x3BMPLiWaMK8fYE1V2m6no6KQUxpNm").toString()
+        userAddress = prefManager.getString("USER_ADDRESS", "rKi8x3BMPLiWaMK8fYE1V2m6no6KQUxpNm").toString()
         scope = CoroutineScope(Job() + Dispatchers.IO)
         setupQuestions()
 

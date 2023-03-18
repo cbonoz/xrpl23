@@ -29,3 +29,27 @@ From the development process, we gained valuable experience in integrating block
 3. Smart contract integration: Complex reward structures, automated processes.
 4. Improved security measures: Additional encryption and authentication methods, advanced fraud prevention.
 5. Expansion to other platforms: iOS and web browser versions which could appeal to a wider audience.
+
+### Screenshots
+
+<div align='center'>
+   
+    ### Home Screen
+    <img src="./img/search.png" width="200" height="400" />
+
+    ### Survey Screen
+    <img src="./img/survey.png" width="200" height="400" />
+
+    ### Survey Complete Screen
+    <img src="./img/done.png" width="200" height="400" />
+
+    ### Rewards Screen
+    <img src="./img/payment.png" width="200" height="400" />
+
+    ### Setting reward address
+    <img src="./img/address.png" width="200" height="400" />
+
+    ### Transaction history
+    <img src="./img/transactions.png" width="200" height="400" />
+
+</div>
