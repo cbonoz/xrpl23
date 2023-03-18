@@ -7,12 +7,17 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.startupsurveys.ui.home.HomeFragment
+import com.startupsurveys.util.PrefManager
 
 
 class MainActivity : FragmentActivity() {
+
+    lateinit var prefManager: PrefManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        prefManager = PrefManager(this)
         navigateTo(HomeFragment())
     }
 

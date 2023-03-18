@@ -1,5 +1,6 @@
 package com.startupsurveys.ui.survey
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -23,6 +24,7 @@ import com.startupsurveys.R
 import com.startupsurveys.ui.home.HomeFragment
 import com.startupsurveys.util.PaymentHelper.Companion.completePayment
 import com.startupsurveys.util.PaymentHelper.Companion.getExplorerUrl
+import com.startupsurveys.util.PrefManager
 import com.startupsurveys.util.SurveyHelper
 import kotlinx.coroutines.*
 
@@ -33,7 +35,8 @@ class SurveyFragment : Fragment() {
     private lateinit var surveyReward: String
     private lateinit var scope: CoroutineScope
 
-    private val userAddress = "rKi7x3BMPLiWaMK8fYE1V2m6no6KQUxpNm"
+    private lateinit var userAddress: String
+    private lateinit var prefManager: PrefManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +45,9 @@ class SurveyFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_survey, container, false)
         surveyView = view.findViewById(R.id.survey_view)
+        prefManager = PrefManager(context as Context)
+        userAddress = prefManager.getString("USER_ADDRESS", "rKi7x3BMPLiWaMK8fYE1V2m6no6KQUxpNm").toString()
+        scope = CoroutineScope(Job() + Dispatchers.IO)
         setupQuestions()
 
         return view
@@ -102,7 +108,6 @@ class SurveyFragment : Fragment() {
 
                 // TODO: make user definable.
                 // matching secret for below address: sEdS4BT6SzzQxnvwMdAjJotnTjnwE4S
-                scope = CoroutineScope(Job() + Dispatchers.IO)
 
                 scope.launch {
                     completePayment(userAddress, surveyReward) { result, error ->

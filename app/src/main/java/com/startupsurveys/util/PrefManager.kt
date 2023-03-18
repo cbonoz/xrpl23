@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
 
-class PrefManager(app: Context, private val gson: Gson) {
+class PrefManager(app: Context, private val gson: Gson = Gson()) {
 
     private val settings: SharedPreferences
 

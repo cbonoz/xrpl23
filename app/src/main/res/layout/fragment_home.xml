@@ -7,9 +7,11 @@
     <ImageView
         android:paddingEnd="@android:dimen/app_icon_size"
         android:paddingStart="@android:dimen/app_icon_size"
+        android:id="@+id/header_image_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo"
+        android:contentDescription="@string/app_name" />
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"

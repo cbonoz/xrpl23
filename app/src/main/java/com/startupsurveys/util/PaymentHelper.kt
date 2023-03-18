@@ -75,6 +75,8 @@ class PaymentHelper {
 
 
         val xrplClient = XrplClient("https://s.altnet.rippletest.net:51234".toHttpUrl())
+        val DEFAULT_RECEIVE_ADDRESS = "rKi7x3BMPLiWaMK8fYE1V2m6no6KQUxpNm"
+
 
     }
 }
