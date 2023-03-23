@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <ImageView
@@ -10,14 +11,16 @@
         android:id="@+id/header_image_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
+        android:src="@drawable/logo_subtitle"
         android:contentDescription="@string/app_name" />
 
     <androidx.appcompat.widget.SearchView
+        app:iconifiedByDefault="false"
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search surveys..."/>
+        app:defaultQueryHint="@string/search_hint"
+        android:queryHint="@string/search_hint"/>
 
     <ListView
         android:id="@+id/list_view"

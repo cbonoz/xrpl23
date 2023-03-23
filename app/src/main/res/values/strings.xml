@@ -3,4 +3,5 @@
     <string name="ok">Ok</string>
     <string name="view">View</string>
     <string name="done">Done</string>
+    <string name="search_hint">Search surveys...</string>
 </resources>

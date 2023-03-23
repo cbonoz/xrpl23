@@ -26,6 +26,7 @@ import com.startupsurveys.util.PaymentHelper.Companion.completePayment
 import com.startupsurveys.util.PaymentHelper.Companion.getExplorerUrl
 import com.startupsurveys.util.PrefManager
 import com.startupsurveys.util.SurveyHelper
+import com.startupsurveys.util.SurveyHelper.Companion.convertAppNameToDomain
 import kotlinx.coroutines.*
 
 
@@ -56,12 +57,13 @@ class SurveyFragment : Fragment() {
     private fun setupQuestions() {
         surveyReward = arguments?.getString("reward") ?: "0.1"
         val appName = arguments?.getString("appName") ?: "UNKNOWN"
+        val domainName = convertAppNameToDomain(appName)
         val steps: ArrayList<Step> = arrayListOf()
 //        https://github.com/QuickBirdEng/SurveyKit#create-survey-steps
         steps.add(
             InstructionStep(
                 title = "Review the $appName app",
-                text = "Complete a series of questions on $appName to earn a $surveyReward XRP reward",
+                text = "$domainName\n\nComplete a series of questions on $appName to earn a $surveyReward XRP reward",
                 buttonText = "Start"
             )
         )

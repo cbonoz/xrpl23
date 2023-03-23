@@ -81,5 +81,10 @@ class SurveyHelper {
                 Survey(it)
             }
         }
+
+        fun convertAppNameToDomain(appName: String): String {
+            val lowercase =  appName.lowercase().replace(" ", "")
+            return "$lowercase.com"
+        }
     }
 }
