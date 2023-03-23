@@ -96,9 +96,14 @@ rQheBm9b6m8YXvEWBqZg58S7fAtcU8efcP
 
  <img src="./img/done.png" width="300" height="600" />
 
+
 #### Rewards Screen
 
  <img src="./img/payment.png" width="300" height="600" />
+
+#### Successful payment
+
+ <img src="./img/success.png" width="800" />
 
 #### Setting reward address
 
