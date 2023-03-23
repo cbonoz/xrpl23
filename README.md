@@ -65,7 +65,7 @@ into mobile applications, creating user-friendly interfaces, and developing syst
 fraudulent activities. We also learned about the importance of user data privacy and security and
 worked to ensure that user data was protected at all times.
 
-### Potential future work:
+### Potential future work / expansion
 
 1. Additional cryptocurrencies integration: More options for micro-rewards.
 2. Enhanced user experience: Social sharing, referral programs, user profiles.
@@ -74,6 +74,7 @@ worked to ensure that user data was protected at all times.
    prevention.
 5. Expansion to other platforms: iOS and web browser versions which could appeal to a wider
    audience.
+6. NFT rewards for completing surveys .
 
 ### Example address
 
