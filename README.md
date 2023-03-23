@@ -105,6 +105,6 @@ rKi8x3BMPLiWaMK8fYE1V2m6no6KQUxpNm
 
 #### Transaction history
 
- <img src="./img/transactions.png" width="300" height="600" />
+ <img src="./img/transactions.png" width="600" />
 
 </div>
