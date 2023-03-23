@@ -74,7 +74,7 @@ worked to ensure that user data was protected at all times.
    prevention.
 5. Expansion to other platforms: iOS and web browser versions which could appeal to a wider
    audience.
-6. NFT rewards for completing surveys .
+6. NFT rewards for completing surveys.
 
 ### Example address
 
@@ -87,6 +87,10 @@ rQheBm9b6m8YXvEWBqZg58S7fAtcU8efcP
 #### Home Screen
 
  <img src="./img/search.png" width="300" height="600" />
+
+#### Filtering results
+
+ <img src="./img/filter.png" width="300" height="600" />
 
 #### Survey Screen
 
