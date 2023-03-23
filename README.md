@@ -103,8 +103,8 @@ rKi8x3BMPLiWaMK8fYE1V2m6no6KQUxpNm
 
  <img src="./img/address.png" width="300" height="600" />
 
-#### Transaction history
+#### Transaction history (shows rewards after a completed survey)
 
- <img src="./img/transactions.png" width="600" />
+ <img src="./img/transactions.png" width="800" />
 
 </div>
