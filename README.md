@@ -13,10 +13,22 @@ quickly and efficiently while incentivizing users to provide their input.
 
 Built for the XRPL Unlocking the Potential of XRP Ledger Hackathon.
 
+Demo video: https://youtu.be/4Z4Z4Z4Z4Z4
+
 ### Inspiration:
 
+With an ever-growing number of new offerings, it can be difficult for companies to
+obtain direct feedback from their customers on new product.
+
+ex: https://www.huffpost.com/entry/12-ways-to-get-brutally-h_b_9741656
+
+Often companies have to rely on third-party market research firms to conduct surveys on their
+behalf. However, these surveys are often conducted on a small sample size and do not provide
+companies with the direct feedback they need to improve their products and services. Additionally,
+these surveys are often conducted on a large scale, which can be costly for companies.
+
 The inspiration behind Surveyr was the growing need for companies to obtain direct feedback from
-their customers on new product launches. We recognized that this feedback is essential for
+their customers on new product launches. This feedback is essential for
 businesses to improve their products and services and stay competitive in their markets. However, we
 also saw an opportunity to reward users for their valuable time and feedback by using cryptocurrency
 micro-rewards. We chose to use the Ripple blockchain for Surveyr because of its fast confirmation
@@ -63,26 +75,36 @@ worked to ensure that user data was protected at all times.
 5. Expansion to other platforms: iOS and web browser versions which could appeal to a wider
    audience.
 
+### Example address
+
+rKi8x3BMPLiWaMK8fYE1V2m6no6KQUxpNm
+
 ### Screenshots
 
 <div align='center'>
 
- #### Home Screen
+#### Home Screen
+
  <img src="./img/search.png" width="300" height="600" />
 
- #### Survey Screen
+#### Survey Screen
+
  <img src="./img/survey.png" width="300" height="600" />
 
- #### Survey Complete Screen
+#### Survey Complete Screen
+
  <img src="./img/done.png" width="300" height="600" />
 
- #### Rewards Screen
+#### Rewards Screen
+
  <img src="./img/payment.png" width="300" height="600" />
 
- #### Setting reward address
+#### Setting reward address
+
  <img src="./img/address.png" width="300" height="600" />
 
- #### Transaction history
+#### Transaction history
+
  <img src="./img/transactions.png" width="300" height="600" />
 
 </div>
