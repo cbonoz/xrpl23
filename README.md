@@ -78,7 +78,7 @@ worked to ensure that user data was protected at all times.
 
 ### Example address
 
-rKi8x3BMPLiWaMK8fYE1V2m6no6KQUxpNm
+rQheBm9b6m8YXvEWBqZg58S7fAtcU8efcP
 
 ### Screenshots
 

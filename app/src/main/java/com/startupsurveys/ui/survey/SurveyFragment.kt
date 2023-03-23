@@ -47,7 +47,8 @@ class SurveyFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_survey, container, false)
         surveyView = view.findViewById(R.id.survey_view)
         prefManager = PrefManager(context as Context)
-        userAddress = prefManager.getString("USER_ADDRESS", "rKi8x3BMPLiWaMK8fYE1V2m6no6KQUxpNm").toString()
+        userAddress =
+            prefManager.getString("USER_ADDRESS", "rQheBm9b6m8YXvEWBqZg58S7fAtcU8efcP").toString()
         scope = CoroutineScope(Job() + Dispatchers.IO)
         setupQuestions()
 
@@ -120,10 +121,15 @@ class SurveyFragment : Fragment() {
                                     val message: String
                                     if (error != null) {
                                         title = "Error completing survey"
-                                        message = error.message ?: "Unknown error"
+                                        message = if (error.message?.indexOf("validate") != -1) {
+                                            "Checksum was not able to validate. Please check your address and try again."
+                                        } else {
+                                            error.message ?: "Unknown error"
+                                        }
                                     } else {
                                         title = "Survey complete!"
-                                        message = "Result: ${result?.engineResultMessage() ?: "Close to return to the app"}"
+                                        message =
+                                            "Result: ${result?.engineResultMessage() ?: "Close to return to the app"}"
                                     }
 
                                     val builder = AlertDialog.Builder(it)
