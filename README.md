@@ -13,7 +13,7 @@ quickly and efficiently while incentivizing users to provide their input.
 
 Built for the XRPL Unlocking the Potential of XRP Ledger Hackathon.
 
-Demo video: https://youtu.be/wu_765ZOo1o
+Demo video: https://youtu.be/mcatLg7FI4s
 
 <p>Note this app would require additional work to be production/mainnet ready.</p>
 
