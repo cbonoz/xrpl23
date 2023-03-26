@@ -11,11 +11,13 @@ features an intuitive interface that makes it easy for users to participate in s
 their rewards. With Surveyr, companies can obtain valuable feedback from their target audience
 quickly and efficiently while incentivizing users to provide their input.
 
+Surveyr uses the xrpl4j library to facilitate payments in-app.
+
 Built for the XRPL Unlocking the Potential of XRP Ledger Hackathon.
 
 Demo video: https://youtu.be/mcatLg7FI4s
 
-<p>Note this app would require additional work to be production/mainnet ready.</p>
+<p>Note this app would require additional work to be production ready.</p>
 
 ### Inspiration:
 
@@ -65,7 +67,9 @@ library to facilitate secure and efficient micro-rewards payments.
 From the development process, we gained valuable experience in integrating blockchain technology
 into mobile applications, creating user-friendly interfaces, and developing systems to prevent
 fraudulent activities. We also learned about the importance of user data privacy and security and
-worked to ensure that user data was protected at all times.
+worked to ensure that user data was protected at all times. Surveyr is currently built on the XRP
+testnet, and a new payment admin address and survey backend with dynamic upload/retrieval could be
+added for production use.
 
 ### Potential future work / expansion
 
@@ -101,7 +105,6 @@ rQheBm9b6m8YXvEWBqZg58S7fAtcU8efcP
 #### Survey Complete Screen
 
  <img src="./img/done.png" width="300" height="600" />
-
 
 #### Rewards Screen
 
